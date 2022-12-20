@@ -47,7 +47,6 @@ lxml==4.9.1
 markupsafe==2.1.1
 matplotlib-inline==0.1.6
 mistune==0.8.4
-mkl_random==1.2.2
 munkres==1.1.4
 nbclassic==0.4.8
 nbclient==0.5.13
@@ -78,7 +77,6 @@ python==3.9.15
 python-dateutil==2.8.2
 pytz==2022.1
 pywin32==302
-seaborn==0.12.1
 traitlets==5.1.1
 typing-extensions==4.3.0
 urllib3==1.26.13
