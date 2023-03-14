@@ -97,7 +97,7 @@ class Rossmann(object):
         # promo since
         df2['promo_since'] = df2['promo2_since_year'].astype(str) + '-' + df2['promo2_since_week'].astype(str)
         df2['promo_since'] = df2['promo_since'].apply(lambda x: datetime.datetime.strptime(x + '-1', '%Y-%W-%w') - datetime.timedelta(days=7))
-        df2['promo_time_week'] = ((df2['date'] - df2['promo_since'])/7).apply(lambda x: x.days).astype(int)
+	df2['promo2_time_week'] = ((df2['date'] - df2['promo2_since'])/7).apply(lambda x: x.days).astype(int)
 
         # assortment
         df2['assortment'] = df2['assortment'].apply(lambda x: 'basic' if x == 'a' else 'extra' if x == 'b' else 'extended')
@@ -124,7 +124,7 @@ class Rossmann(object):
         df5['competition_time_month'] = self.competition_time_month_scaler.fit_transform(df5[['competition_time_month']].values)
 
         #promo time week
-        df5['promo_time_week'] = self.promo_time_week_scaler.fit_transform(df5[['promo_time_week']].values)
+        df5['promo2_time_week'] = self.promo_time_week_scaler.fit_transform(df5[['promo2_time_week']].values)
 
         #year
         df5['year'] = self.year_scaler.fit_transform(df5[['year']].values)
@@ -157,7 +157,7 @@ class Rossmann(object):
         df5['week_of_year_cos'] = df5['week_of_year'].apply(lambda x: np.cos( x * ( 2. * np.pi/52)))
         
         cols_selected = ['store', 'promo', 'store_type', 'assortment', 'competition_distance', 'competition_open_since_month', 'competition_open_since_year', 'promo2', 
-                                'promo2_since_week', 'promo2_since_year', 'competition_time_month', 'promo_time_week', 'day_of_week_sen', 'day_of_week_cos', 'month_cos', 'day_sen', 
+                                'promo2_since_week', 'promo2_since_year', 'competition_time_month', 'promo2_time_week', 'day_of_week_sen', 'day_of_week_cos', 'month_cos', 'day_sen', 
                                 'day_cos', 'week_of_year_cos']
         
         
